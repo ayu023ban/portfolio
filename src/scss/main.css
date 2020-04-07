@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  font-family: inherit; }
+
+::selection {
+  background: rgba(0, 0, 0, 0.15); }
+
+body {
+  background-color: #000;
+  color: #000;
+  font-family: Avenir-regular, Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  line-height: 1.3;
+  font-variant-numeric: oldstyle-nums; }
+
+html {
+  -webkit-text-size-adjust: 100%; }
+
+a {
+  color: unset; }
+
+.big,
+.lang,
+h1,
+h2 {
+  font-family: Avenir-bold, Helvetica, Arial, sans-serif; }
+  .big .big,
+  .big h1,
+  .lang .big,
+  .lang h1,
+  h1 .big,
+  h1 h1,
+  h2 .big,
+  h2 h1 {
+    font-size: 13vw;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    transform: translateX(-0.07em); }
+  .big .lang,
+  .big h2,
+  .lang .lang,
+  .lang h2,
+  h1 .lang,
+  h1 h2,
+  h2 .lang,
+  h2 h2 {
+    font-size: 24px;
+    line-height: 1.1; }
+
+.s-white {
+  --textColor: $black;
+  background-color: #fff;
+  color: #000; }
+
+.s-blue {
+  background-color: #0546ee; }
+
+.s-blue,
+.s-red {
+  --textColor: $white;
+  color: #000; }
+
+.s-red,
+.s-red-black {
+  background-color: #ef1414; }
+
+.s-red-black {
+  --textColor: $black;
+  color: #000; }
+
+.date {
+  color: transparent;
+  -webkit-text-stroke: 1px #000; }
+
+.bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  padding: 30px;
+  z-index: -1;
+  transform: translateZ(0); }
+
+main {
+  position: absolute;
+  z-index: 1; }
+
+.dialog,
+main {
+  top: 0;
+  left: 0;
+  right: 0;
+  will-change: transform !important;
+  transform: translateZ(0);
+  -webkit-overflow-scrolling: touch; }
+
+.wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  will-change: transform !important;
+  transform: translateZ(0); }
+
+.wrapper > * {
+  position: relative;
+  padding: var(--main-padding); }
+
+.gap-start {
+  height: 100%; }
+
+.wrapper > * {
+  position: relative;
+  padding: 30px; }
+
+.sq {
+  min-width: 100vh; }
+
+.sq {
+  height: 86vh;
+  display: grid; }
+
+@media only screen and (orientation: landscape) {
+  .main {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    height: 100vh; }
+
+  .wrapper {
+    flex-flow: row nowrap;
+    height: 100%; }
+
+  .gap-start {
+    height: 100%;
+    min-width: 100vw; }
+
+  .sq, .title {
+    min-width: 100vh;
+    height: 100%; } }
+
+/*# sourceMappingURL=main.css.map */
