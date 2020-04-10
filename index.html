@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>Document</title>
-    <link rel="stylesheet" href="./src/scss/main.css">
+    <link rel="stylesheet" href="./src/scss/main.css" />
     <!-- Font Awesome -->
     <link
       rel="stylesheet"
@@ -16,25 +16,60 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
     />
-    <!-- Bootstrap core CSS -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <!-- Material Design Bootstrap -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.15.0/css/mdb.min.css"
-      rel="stylesheet"
-    />
   </head>
-  <body>
-    <div class="bg black"></div>
+  <body class="notouch">
+    <svg class="sprite">
+      <symbol id="arrow" viewBox="0 0 70 70">
+        <path
+          d="M0,0 h70 v70 h-21 v-33.85 L14.95,70 L0,55.05 L33.85,21 h-33.85 z"
+        />
+      </symbol>
+      <symbol id="zholud" viewBox="0 0 100 100">
+        <path
+          d="M64.986,5.496C38.65-3.373,10.589,9.362,2.313,33.941C-5.964,58.52,8.678,85.635,35.012,94.504
+        c26.338,8.87,54.399-3.866,62.676-28.447C105.964,41.479,91.321,14.366,64.986,5.496 M86.096,62.153
+        c-7.377,21.911-29.518,34.227-49.453,27.514C16.705,82.955,6.526,59.752,13.905,37.845c7.374-21.907,29.516-34.223,49.45-27.51
+        c1.316,0.443,2.581,0.959,3.81,1.539c-12.565,0.436-19.23,8.762-20.133,16.546c-8.87,1.188-16.512,7.51-16.512,15.215h33.346
+        L38.17,52.757c-2.188,0.728-3.662,2.773-3.662,5.078v2.833c0,11.101,11.185,9.27,14.758,14.104c0.304,0.412,0.551,0.443,0.733,0.443
+        c0.184,0,0.433-0.031,0.736-0.443c3.573-4.834,14.758-3.003,14.758-14.104V45.33c0-0.897,0.462-1.764,1.261-2.173
+        c1.598-0.818,2.722-2.068,1.57-4.626c-2.329-5.172-8.242-8.995-14.809-10.041c-0.048-2.677,0.98-8.427,7.35-11.266
+        C77.382,9.868,94.602,36.472,86.096,62.153"
+        />
+      </symbol>
+    </svg>
+    <div class="bg" id="letters">
+      <svg id="svg">
+        <path id="path" d="" />
+      </svg>
+    </div>
     <div class="main">
-      <div class="wrapper" >
+      <div class="wrapper">
         <div class="gap-start"></div>
-        <div class="sq s-red"></div>
+        <div class="sq first s-red dot">
+          <div class="date"><span>2</span><br />3</div>
+          <div class="intro">
+            Hello
+            <div class="firstcontent">I'm <span>Ayush Bansal</span></div>
+            <div class="secondcontent">Full Stack<br />Developer</div>
+          </div>
+          <div class="thirdcontent">
+            <div class="social">
+              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <div class="date portfolio"><span>Port</span><br />Folio</div>
+          </div>
+        </div>
         <div class="gap"></div>
-        <div class="title s-blue dots"></div>
+        <div class="title second s-blue dots">
+          <div class="skills" >Skills
+            <span class="arrow">
+            <svg><use xlink:href="#arrow"></svg>
+            <svg><use xlink:href="#arrow"></svg>
+          </span>
+          </span></div>
+          <div class="date"><span>2</span>.3</div>
+        </div>
         <div class="gap"></div>
         <div class="schedule grid s-blue dot"></div>
         <div class="gap"></div>
@@ -47,25 +82,6 @@
     </div>
 
     <script type="module" src="./src/index.js"></script>
-    <!-- JQuery -->
-    <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
-    ></script>
-    <!-- Bootstrap tooltips -->
-    <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"
-    ></script>
-    <!-- Bootstrap core JavaScript -->
-    <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"
-    ></script>
-    <!-- MDB core JavaScript -->
-    <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.15.0/js/mdb.min.js"
-    ></script>
+    <script src="./src/modules/letters.js"></script>
   </body>
 </html>

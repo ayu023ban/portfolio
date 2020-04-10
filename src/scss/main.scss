@@ -32,6 +32,39 @@ $textColor: $black;
 ::selection {
   background: rgba(0, 0, 0, 0.15);
 }
+
+svg.sprite {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+span.arrow {
+  display: inline-block;
+  width: 0.48em;
+  height: 0.48em;
+  margin-left: -0.05em;
+  overflow: hidden;
+  position: relative;
+}
+span.arrow > svg {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+  will-change: transform !important;
+  transform: translateZ(0);
+  transition: transform 0.25s ease-in-out, fill 0.2s;
+}
+span.arrow > svg:last-child {
+  top: 120%;
+  left: -120%;
+}
 body {
   background-image: url(../assets/images/clear-close-up-dark-dew-236968.jpg);
   background-repeat: no-repeat;
@@ -140,7 +173,7 @@ main {
   height: 86vh;
   display: grid;
 }
-.dots:before {
+.dot:before {
   position: absolute;
   display: block;
   width: $dot;
@@ -181,19 +214,53 @@ main {
     display: grid;
     justify-content: space-between;
     grid-template-columns: auto auto;
-    .social{
+    .social {
       align-self: end;
-      .fab{
-        font-size:$dot;
+      .fab {
+        font-size: $dot;
         background-color: $red;
-        color:$black;
-        margin:auto $main-padding;
+        color: $black;
+        margin: auto $main-padding;
       }
     }
     .portfolio {
       align-self: end;
       font-size: 9vh;
     }
+  }
+}
+.dots:before,
+.dots:after {
+  position: absolute;
+  display: block;
+  width: $dot;
+  border-radius: 50%;
+  background-color: $black;
+  height: $dot;
+  content: "";
+  right: $main-padding;
+  z-index: 2;
+}
+.dots:before {
+  top: $main-padding;
+}
+.dots:after {
+  bottom: $main-padding;
+}
+
+.second {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  align-content: space-between;
+  .skills {
+    font-size: 18vh;
+    color: $black;
+    font-family: Avenir-bold;
+    cursor: pointer;
+  }
+  .date{
+    width:max-content;
   }
 }
 
@@ -221,4 +288,41 @@ main {
     min-width: 320px;
     height: 100%;
   }
+}
+
+@media (hover: hover) {
+  .second {
+    .skills {
+      transition: color transform 0.2s;
+    }
+    .skills:hover {
+      color: $white;
+    }
+
+    .skills:hover span.arrow>svg{
+      transform:translate3d(120%,-120%,0);
+    }
+    .date{
+      transition:all 0.2s;
+    }
+    .date:hover{
+      -webkit-text-stroke: 1px white;
+      span{
+        color:white;
+      }
+    }
+  }
+  .first{
+    .date{
+      transition:all 0.2s;
+      width:max-content;
+    }
+    .date:hover{
+      -webkit-text-stroke: 1px white;
+      span{
+        color:white;
+      }
+    }
+  }
+
 }
