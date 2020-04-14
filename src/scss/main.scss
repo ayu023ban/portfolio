@@ -18,6 +18,23 @@
   overflow: -moz-scrollbars-none;
 }
 
+body.notouch{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+}
+.notouch{
+  .main , .dialog{
+    position: absolute;
+  right: unset;
+  overflow: initial;position: absolute;
+  right: unset;
+  overflow: initial;
+  }
+}
 $white: #fff;
 $black: #000;
 $blue: #0546ee;
@@ -153,6 +170,13 @@ main {
   will-change: transform !important;
   transform: translateZ(0);
   -webkit-overflow-scrolling: touch;
+}
+.dialog {
+  position: fixed;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  z-index: 10;
 }
 .wrapper {
   display: flex;
@@ -369,10 +393,10 @@ main {
       padding: 15px $main-padding;
       background-color: $black;
       border-radius: 5px;
-      transition: color , background-color 0.2s
+      transition: color, background-color 0.2s;
     }
-    a:hover{
-      color:$black;
+    a:hover {
+      color: $black;
       background-color: $white;
     }
   }
@@ -387,47 +411,47 @@ main {
         color: $white;
       }
     }
-    .social{
+    .social {
       position: absolute;
       right: $main-padding;
       bottom: $main-padding;
-      width:$dot;
-      display:grid;
+      width: $dot;
+      display: grid;
       grid-template-rows: auto auto;
-      a{
+      a {
         width: 100%;
       }
-      i{
+      i {
         font-size: $dot;
         width: 100%;
       }
-      i::before{
+      i::before {
         width: 100%;
       }
-      .social-button{
-        transition:all 0.2s;
+      .social-button {
+        transition: all 0.2s;
         transform-origin: bottom;
       }
-      .fab{
+      .fab {
         text-align: center;
         margin: 5px 0;
       }
-      .social-button-old{
+      .social-button-old {
         transform: scaleY(0);
       }
-      .social_button_new{
+      .social_button_new {
         height: scaleY(1);
       }
-      .rotate{
+      .rotate {
         transform: rotate(180deg);
       }
-      .trigger-button{
+      .trigger-button {
         transition: all 0.2s;
         text-align: center;
       }
-      .fas{
+      .fas {
         background-color: $black;
-        color:$red;
+        color: $red;
         border-radius: 50%;
         // padding:3px;
       }
@@ -441,6 +465,73 @@ main {
     overflow-y: hidden;
     overflow-x: scroll;
     height: 100 * $vh;
+  }
+  .dialog-visible {
+    pointer-events: auto;
+    animation: showdialog $transition cubic-bezier(0.8, 0, 0.2, 1) forwards;
+  }
+  .dialog-hidden {
+    pointer-events: none;
+    animation: hidedialog $transition cubic-bezier(0.8, 0, 0.2, 1) forwards;
+  }
+  .main-hidden {
+    pointer-events: none;
+    animation: hidemain $transition cubic-bezier(0.8, 0, 0.2, 1) forwards;
+  }
+  .main-visible {
+    pointer-events: auto;
+    animation: showmain $transition cubic-bezier(0.8, 0, 0.2, 1) forwards;
+  }
+  .dialog {
+    transform: translate3d(100%, 0, 0);
+  }
+  @keyframes showdialog {
+    0% {
+      opacity: 1;
+      transform: translate3d(100%, 0, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translateZ(0);
+    }
+  }
+  @keyframes showmain {
+    0% {
+      opacity: 1;
+      transform: translate3d(-99.9%, 0, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translateZ(0);
+    }
+  }
+  @keyframes hidedialog {
+    0% {
+      opacity: 1;
+      transform: translateZ(0);
+    }
+    99.9% {
+      opacity: 1;
+      transform: translate3d(100%, 0, 0);
+    }
+    to {
+      opacity: 0;
+      transform: translate3d(100%, 0, 0);
+    }
+  }
+  @keyframes hidemain {
+    0% {
+      opacity: 1;
+      transform: translateZ(0);
+    }
+    99.9% {
+      opacity: 1;
+      transform: translate3d(-99.9%, 0, 0);
+    }
+    to {
+      opacity: 0;
+      transform: translate3d(-99.9%, 0, 0);
+    }
   }
   .wrapper {
     flex-flow: row nowrap;
