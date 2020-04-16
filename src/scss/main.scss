@@ -1,4 +1,5 @@
 @import "../assets/fonts/avenir.css";
+@import "../assets/fonts/roboto.css";
 * {
   margin: 0;
   padding: 0;
@@ -18,7 +19,7 @@
   overflow: -moz-scrollbars-none;
 }
 
-body.notouch{
+body.notouch {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -26,13 +27,12 @@ body.notouch{
   right: 0;
   overflow: hidden;
 }
-.notouch{
-  .main , .dialog{
+.notouch {
+  main,
+  .dialog {
     position: absolute;
-  right: unset;
-  overflow: initial;position: absolute;
-  right: unset;
-  overflow: initial;
+    right: unset;
+    overflow: initial;
   }
 }
 $white: #fff;
@@ -74,7 +74,8 @@ span.arrow > svg {
   width: 100%;
   height: 100%;
   fill: currentColor;
-  will-change: transform !important;
+  will-change: auto;
+  //will-change: transform !important;
   transform: translateZ(0);
   transition: transform 0.25s ease-in-out, fill 0.2s;
 }
@@ -83,7 +84,7 @@ span.arrow > svg:last-child {
   left: -120%;
 }
 body {
-  background-image: url(../assets/images/clear-close-up-dark-dew-236968.jpg);
+  background-color: $black;
   background-repeat: no-repeat;
   background-size: cover;
   color: $black;
@@ -144,6 +145,7 @@ h2 {
   font-size: 18vh;
   font-family: Avenir-bold, Helvetica;
   line-height: 0.8;
+  cursor: default;
   span {
     color: $black;
   }
@@ -161,13 +163,17 @@ h2 {
 main {
   position: absolute;
   z-index: 1;
+  .wrapper:last-child {
+    box-shadow: 0 60vh $white;
+  }
 }
 .dialog,
 main {
   top: 0;
   left: 0;
   right: 0;
-  will-change: transform !important;
+  will-change: auto;
+  //will-change: transform !important;
   transform: translateZ(0);
   -webkit-overflow-scrolling: touch;
 }
@@ -177,11 +183,85 @@ main {
   overflow-x: hidden;
   overflow-y: scroll;
   z-index: 10;
+  span.arrow {
+    margin-left: 0.07em;
+    margin-right: -0.07em;
+    transform: rotate(180deg);
+  }
 }
+.dialog-visible {
+  pointer-events: auto;
+  animation: showdialog $transition cubic-bezier(0.8, 0, 0.2, 1) forwards;
+}
+.dialog-hidden {
+  pointer-events: none;
+  animation: hidedialog $transition cubic-bezier(0.8, 0, 0.2, 1) forwards;
+}
+.main-hidden {
+  pointer-events: none;
+  animation: hidemain $transition cubic-bezier(0.8, 0, 0.2, 1) forwards;
+}
+.main-visible {
+  pointer-events: auto;
+  animation: showmain $transition cubic-bezier(0.8, 0, 0.2, 1) forwards;
+}
+.dialog {
+  transform: translate3d(100%, 0, 0);
+}
+@keyframes showdialog {
+  0% {
+    opacity: 1;
+    transform: translate3d(100%, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+@keyframes showmain {
+  0% {
+    opacity: 1;
+    transform: translate3d(-99.9%, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+@keyframes hidedialog {
+  0% {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+  99.9% {
+    opacity: 1;
+    transform: translate3d(100%, 0, 0);
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+}
+@keyframes hidemain {
+  0% {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+  99.9% {
+    opacity: 1;
+    transform: translate3d(-99.9%, 0, 0);
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(-99.9%, 0, 0);
+  }
+}
+
 .wrapper {
   display: flex;
   flex-flow: column nowrap;
-  will-change: transform !important;
+  will-change: auto;
+  //will-change: transform !important;
   transform: translateZ(0);
 }
 .gap-start {
@@ -335,6 +415,7 @@ main {
   display: grid;
   grid-template-rows: 2fr 20px 1fr 1fr;
   .project {
+    cursor: pointer;
     font-size: 18vh;
     align-self: flex-start;
     justify-self: start;
@@ -459,36 +540,70 @@ main {
   }
 }
 
+.cover {
+  position: relative;
+  min-height: 86vh;
+  flex-shrink: 0;
+  padding-left: 0;
+  padding-right: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  font-size: 18vh;
+  background-color: $black;
+  cursor: pointer;
+  h1 {
+    grid-column: 1;
+    grid-row: 1;
+    padding-left: $main-padding;
+    padding-right: $main-padding;
+    color: white;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    transform: translate(-0.07em, -0.4em);
+  }
+  picture,
+  img {
+    grid-column: 1;
+    grid-row: 2;
+    display: block;
+    align-self: center;
+  }
+  picture {
+    height: 100%;
+    margin-left: $main-padding;
+    padding-left: $main-padding;
+    img {
+      display: block;
+      max-height: 100%;
+    }
+  }
+}
+
 @media only screen and (orientation: landscape) {
-  .main {
+  main {
     overflow-x: scroll;
     overflow-y: hidden;
     overflow-x: scroll;
     height: 100 * $vh;
-  }
-  .dialog-visible {
-    pointer-events: auto;
-    animation: showdialog $transition cubic-bezier(0.8, 0, 0.2, 1) forwards;
-  }
-  .dialog-hidden {
-    pointer-events: none;
-    animation: hidedialog $transition cubic-bezier(0.8, 0, 0.2, 1) forwards;
-  }
-  .main-hidden {
-    pointer-events: none;
-    animation: hidemain $transition cubic-bezier(0.8, 0, 0.2, 1) forwards;
-  }
-  .main-visible {
-    pointer-events: auto;
-    animation: showmain $transition cubic-bezier(0.8, 0, 0.2, 1) forwards;
+    .wrapper:last-child {
+      box-shadow: 60vw 0 $red;
+    }
   }
   .dialog {
-    transform: translate3d(100%, 0, 0);
+    transform: translate3d(0, -100%, 0);
+    .wrapper:first-child {
+      box-shadow: -30vw 0 $black, -60vw 0 $black;
+    }
+    .wrapper:last-child {
+      box-shadow: -30vw 0 $black, -60vw 0 $black;
+    }
   }
   @keyframes showdialog {
     0% {
       opacity: 1;
-      transform: translate3d(100%, 0, 0);
+      transform: translate3d(0, -100%, 0);
     }
     to {
       opacity: 1;
@@ -498,7 +613,7 @@ main {
   @keyframes showmain {
     0% {
       opacity: 1;
-      transform: translate3d(-99.9%, 0, 0);
+      transform: translate3d(0, 100%, 0);
     }
     to {
       opacity: 1;
@@ -512,11 +627,11 @@ main {
     }
     99.9% {
       opacity: 1;
-      transform: translate3d(100%, 0, 0);
+      transform: translate3d(0, -100%, 0);
     }
     to {
       opacity: 0;
-      transform: translate3d(100%, 0, 0);
+      transform: translate3d(0, -100%, 0);
     }
   }
   @keyframes hidemain {
@@ -526,11 +641,11 @@ main {
     }
     99.9% {
       opacity: 1;
-      transform: translate3d(-99.9%, 0, 0);
+      transform: translate3d(0, 100%, 0);
     }
     to {
       opacity: 0;
-      transform: translate3d(-99.9%, 0, 0);
+      transform: translate3d(0, 100%, 0);
     }
   }
   .wrapper {
@@ -549,6 +664,45 @@ main {
   .gap {
     min-width: 320px;
     height: 100%;
+  }
+
+  .cover {
+    padding: unset;
+    width: 125vh;
+    h1 > span:last-child {
+      transform: translateY(0.54em);
+    }
+    h1 {
+      grid-row: 1/-1;
+      padding: $main-padding;
+      justify-content: space-between;
+      font-size: 18vh;
+      margin-left: $main-padding;
+      picture {
+        img {
+          min-width: unset;
+          max-width: unset;
+          width: 100%;
+          min-height: 100%;
+          max-height: 100%;
+          object-fit: cover;
+        }
+      }
+      img,
+      picture {
+        grid-row: 1/-1;
+        picture {
+          img {
+            min-width: unset;
+            max-width: unset;
+            width: 100%;
+            min-height: 100%;
+            max-height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+    }
   }
 }
 

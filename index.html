@@ -5,12 +5,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <script src="./src/modules/bodyScrollLock.js"></script>
   <title>Document</title>
   <link rel="stylesheet" href="./src/scss/main.css" />
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" />
   <!-- Google Fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" /> -->
 </head>
 
 <body class="notouch">
@@ -34,12 +35,18 @@
       <path id="path" d="" />
     </svg>
   </div>
-  <div class="main">
+  <main>
+
+
+
+
+
+
+
+
+    <!-- -------------------   main cover -------------------------------------------------------- -->
     <div class="wrapper">
       <div class="gap-start"></div>
-
-
-
       <div class="sq first s-red dot">
         <div class="date"><span>2</span><br />3</div>
         <div class="intro">
@@ -49,22 +56,16 @@
         </div>
         <div class="thirdcontent">
           <div class="social">
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/ayu023ban/" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/ayush-bansal-2b00b0192/" target="_blank"><i
+                class="fab fa-linkedin"></i></a>
           </div>
           <div class="date portfolio"><span>Port</span><br />Folio</div>
         </div>
       </div>
-
-
-
       <div class="gap"></div>
-
-
-
-
       <div class="title second s-blue dots">
-        <div class="skills">Skills
+        <div class="skills" onclick="openDialog(1)">Skills
           <span class="arrow">
             <svg>
               <use xlink:href="#arrow">
@@ -78,23 +79,16 @@
         </div>
         <div class="about">
           <h1>About me</h1>
-          <p>I am an undergraduate student at IIT Roorkee doing major in Electronics And Communication Engineering.<br>I am passionate about contributing to developer community</p>
+          <p>I am an undergraduate student at IIT Roorkee doing major in Electronics And Communication Engineering.<br>I
+            am passionate about contributing to developer community</p>
           <p>LIFE PHILOSOPHY</p>
           <p>Aut inveniam viam aut faciam</p>
         </div>
         <div class="date"><span>2</span>.3</div>
       </div>
-
-
-
-
       <div class="gap"></div>
-
-
-
-
       <div class="third grid s-white dot">
-        <div class="project">Projects
+        <div class="project" onclick="openDialog(2)">Projects
           <span class="arrow">
             <svg>
               <use xlink:href="#arrow">
@@ -118,18 +112,78 @@
           <div class="secondcontent">3</div>
         </div>
       </div>
-
-
-
-
       <div class="gap"></div>
-      <div class="schedule grid s-red dot"></div>
-      <div class="gap"></div>
-      <div class="schedule grid s-white dot"></div>
-      <div class="gap"></div>
-      <div class="schedule grid s-white"></div>
+      <div class="footer s-red ">
+        <div class="contact">
+          <p>Contact Me</p>
+          <p>Feel free to contact me</p>
+        </div>
+        <div class="email">
+          <p>ayu023ban@gmail.com</p>
+          <a href="mailto:ayu023ban@gmail.com">Email</a>
+        </div>
+        <div class="footer-end">
+          <div class="credit">Ayush Bansal portfolio 2020 ©
+            <!-- Inspiration by: <a href="https://pianotriofest.com/en/"
+               target="_blank">pianotriofest.com</a>-->
+          </div>
+          <div class="social">
+            <div class="social-button social-button-old">
+              <a href="https://www.github.com/ayu023ban" target="_blank"><i class="fab fa-github"></i></a>
+              <a href="https://www.linkedin.com/in/ayush-bansal-2b00b0192/" target="_blank"><i
+                  class="fab fa-linkedin"></i></a>
+              <a href="https://www.facebook.com/ayushbansal23" target="_blank"><i class="fab fa-facebook"></i></a>
+              <a href="https://www.instagram.com/ayu023ban/" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="trigger-button">
+              <i class="fas fa-arrow-up"></i>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+
+
+
+
+
+  <!-- -------------------------------------skill cover------------------------------------------ -->
+
+  <div class="dialog">
+    <div class="wrapper">
+      <div class="cover" onclick="closeDialog(1)">
+        <h1>
+          <span>
+            <a class="exbutton">
+              <span class="arrow">
+                <svg><use xlink:href="#arrow"></svg>
+                <svg><use xlink:href="#arrow"></svg>
+              </span>
+            </a>
+          </span>
+          <span>Skills</span>
+        </h1>
+        <picture>
+          <source type="image/webp" src="./src/assets/images/back-1.webp 750w">
+          <img src="./src/assets/images/back-1.webp" sizes="(orientation: landscape) 100%, 100%" alt="Ayush Bansal">
+        </picture>
+      </div>
     </div>
   </div>
+
+
+
+
+  <div class="dialog">
+    <div class="wrapper">
+
+    </div>
+  </div>
+
 
   <script src="./src/index.js"></script>
   <!-- <script src="./src/modules/letters.js"></script> -->
