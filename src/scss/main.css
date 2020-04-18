@@ -670,13 +670,14 @@ main {
   }
   .cover {
     padding: unset;
-    width: 125vh;
+    width: 150vh;
   }
   .cover h1 > span:last-child {
     transform: translateY(0.54em);
   }
   .cover h1 {
     grid-row: 1/-1;
+    width: max-content;
     padding: 30px;
     justify-content: space-between;
     font-size: 18vh;
