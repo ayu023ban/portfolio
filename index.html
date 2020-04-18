@@ -15,6 +15,8 @@
 </head>
 
 <body class="notouch">
+
+
   <svg class="sprite">
     <symbol id="arrow" viewBox="0 0 70 70">
       <path d="M0,0 h70 v70 h-21 v-33.85 L14.95,70 L0,55.05 L33.85,21 h-33.85 z" />
@@ -30,21 +32,19 @@
         C77.382,9.868,94.602,36.472,86.096,62.153" />
     </symbol>
   </svg>
+
+
+
+
   <div class="bg" id="letters">
     <svg id="svg">
       <path id="path" d="" />
     </svg>
   </div>
+
+
+  <!-- -------------------   main cover -------------------------------------------------------- -->
   <main>
-
-
-
-
-
-
-
-
-    <!-- -------------------   main cover -------------------------------------------------------- -->
     <div class="wrapper">
       <div class="gap-start"></div>
       <div class="sq first s-red dot">
@@ -160,8 +160,12 @@
           <span>
             <a class="exbutton">
               <span class="arrow">
-                <svg><use xlink:href="#arrow"></svg>
-                <svg><use xlink:href="#arrow"></svg>
+                <svg>
+                  <use xlink:href="#arrow">
+                </svg>
+                <svg>
+                  <use xlink:href="#arrow">
+                </svg>
               </span>
             </a>
           </span>
@@ -186,7 +190,8 @@
 
 
   <script src="./src/index.js"></script>
-  <!-- <script src="./src/modules/letters.js"></script> -->
+  
+  <script src="./src/modules/letters.js"></script>
 </body>
 
 </html>

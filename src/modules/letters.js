@@ -50,6 +50,84 @@ var div = document.getElementById("letters"),
         { type: "L", x: 5, xRef: "c", y: 25, yRef: "t" },
       ],
     },
+    _B:{
+      ratio:{w:112,h:110},
+      data:[
+        { type: "M", x: 0, xRef: "l", y: 0, yRef: "t" },
+        { type: "L", x: 0, xRef: "r", y: 0, yRef: "t" },
+        { type: "L", x: 0, xRef: "r", y: -10, yRef: "c" },
+        { type: "L", x: 22, xRef: "l", y: -10, yRef: "c" },
+        { type: "L", x: 22, xRef: "l", y: 10, yRef: "c" },
+        { type: "L", x: 0, xRef: "r", y: 10, yRef: "c" },
+        { type: "L", x: 0, xRef: "r", y: 0, yRef: "b" },
+        { type: "L", x: 0, xRef: "l", y: 0, yRef: "b" },
+        { type: "L", x: 0, xRef: "l", y: 0, yRef: "t" },  
+        { type: "M", x: -10, xRef: "c", y: -40, yRef: "c" }, 
+        { type: "L", x: 10, xRef: "c", y: -40, yRef: "c" },
+        { type: "L", x: 10, xRef: "c", y: -20, yRef: "c" },  
+        { type: "L", x: -10, xRef: "c", y: -20, yRef: "c" },  
+        { type: "L", x: -10, xRef: "c", y: -40, yRef: "c" },
+      ]
+    },
+    _Y:{
+      ratio:{w:112,h:100},
+      data:[
+        {type: "M",x:0,xRef:"l",y:0,yRef:"t"},
+        { type: "L", x: -5, xRef: "c", y: 0, yRef: "t" },
+        { type: "L", x: -5, xRef: "c", y: -5, yRef: "c" },
+        { type: "L", x: 5, xRef: "c", y: -5, yRef: "c" },
+        { type: "L", x: 5, xRef: "c", y: 0, yRef: "t" },
+        { type: "L", x: 0, xRef: "r", y: 0, yRef: "t" },
+        { type: "L", x: 0, xRef: "r", y: 0, yRef: "b" },
+        { type: "L", x: 0, xRef: "l", y: 0, yRef : "b" },
+        { type: "L", x: 0, xRef: "l", y: 20, yRef: "c" },
+        { type: "L", x: 50, xRef: "c", y: 20, yRef: "c" },
+        { type: "L", x: 50, xRef: "c", y: 5, yRef: "c" },
+        { type: "L", x: 0, xRef: "l", y: 5, yRef: "c" },
+      ]
+    },
+    _L:{
+      ratio:{w:112,h:100},
+      data:[
+        {type: "M",x:0,xRef:"l",y:0,yRef:"t"},
+        { type: "L", x: 0, xRef: "c", y: 0, yRef: "t" },
+        { type: "L", x: 0, xRef: "c", y: 40, yRef: "c" },
+        { type: "L", x: 0, xRef: "r", y: 40, yRef: "c" },
+        { type: "L", x: 0, xRef: "r", y: 0, yRef: "b" },
+        { type: "L", x: 0, xRef: "l", y: 0, yRef: "b" },
+      ]
+    },
+    _U:{
+      ratio:{w:112,h:100},
+      data:[
+        {type: "M",x:0,xRef:"l",y:0,yRef:"t"},
+        { type: "L", x: -5, xRef: "c", y: 0, yRef: "t" },
+        { type: "L", x: -5, xRef: "c", y: 10, yRef: "c" },
+        { type: "L", x: 5, xRef: "c", y: 10, yRef: "c" },
+        { type: "L", x: 5, xRef: "c", y: 0, yRef: "t" },
+        { type: "L", x: 0, xRef: "r", y: 0, yRef: "t" },
+        { type: "L", x: 0, xRef: "r", y: 0, yRef: "b" }, 
+        { type: "L", x: 0, xRef: "l", y: 0, yRef: "b" },   
+      ]
+    },
+    _H:{
+      ratio:{w:112,h:100},
+      data:[
+        {type: "M",x:0,xRef:"l",y:0,yRef:"t"},
+        { type: "L", x: -20, xRef: "c", y: 0, yRef: "t" },
+        { type: "L", x: -20, xRef: "c", y: -20, yRef: "c" },
+        { type: "l", x: [40], y: [0] },
+        { type: "L", x: 20, xRef: "c", y: 0, yRef: "t" },
+        { type: "L", x: 0, xRef: "r", y: 0, yRef: "t" },
+        { type: "L", x: 0, xRef: "r", y: 0, yRef: "b" },
+        { type: "L", x: 20, xRef: "c", y: 0, yRef: "b" },
+        { type: "L", x: 20, xRef: "c", y: 20, yRef: "c" },
+        { type: "L", x: -20, xRef: "c", y: 20, yRef: "c" },
+        { type: "L", x: -20, xRef: "c", y: 0, yRef: "b" },
+        { type: "L", x: 0, xRef: "l", y: 0, yRef: "b" },
+
+      ]
+    },
     _R: {
       ratio: { w: 112, h: 100 },
       data: [
@@ -117,6 +195,9 @@ var div = document.getElementById("letters"),
         { type: "L", x: 58, xRef: "r", y: 17.5, yRef: "b" },
         { type: "L", x: 58, xRef: "l", y: 17.5, yRef: "b" },
         { type: "L", x: 52.8, xRef: "l", y: 0, yRef: "b" },
+        // { type: "M", x: 0, xRef: "c", y: 10, yRef: "t"},
+        // { type: "l", x: [20, -40  ], y: [20, 0] },
+
       ],
     },
     _T: {
@@ -179,23 +260,25 @@ var div = document.getElementById("letters"),
   },
   textDesk = [
     [
-      { letter: settings._P, flex: 1 },
-      { letter: settings._O },
-      { letter: settings._R },
-      { letter: settings._T },
-    //   { letter: settings._O, flex: 0 },
-    ],
-    [
-      { letter: settings._T },
-      { letter: settings._R, flex: 1 },
-      { letter: settings._I, flex: 0 },
-      { letter: settings._O },
-    ],
-    [
-      { letter: settings._F, flex: 1 },
-      { letter: settings._E },
+      { letter: settings._A, flex: 1 },
+      { letter: settings._Y },
+      { letter: settings._U },
       { letter: settings._S },
-      { letter: settings._T, flex: 0 },
+      { letter: settings._H, flex: 0 },
+    ],
+    // [
+    //   { letter: settings._T },
+    //   { letter: settings._R, flex: 1 },
+    //   { letter: settings._I, flex: 0 },
+    //   { letter: settings._O },
+    // ],
+    [
+      { letter: settings._B,flex:1 },
+      { letter: settings._A },
+      { letter: settings._N },
+      { letter: settings._S },
+      { letter: settings._A},
+      { letter: settings._L,flex:0},
     ],
   ],
   textMob = [
@@ -226,11 +309,7 @@ function animateBg() {
 }
 function setSvgViewbox() {
   text = window.innerWidth < window.innerHeight ? textMob : textDesk;
-  let e = parseFloat(
-    getComputedStyle(document.documentElement).getPropertyValue(
-      "--main-padding"
-    )
-  );
+  let e = parseFloat(40);
   (settings.wrapper.w = div.offsetWidth - 2 * e),
     (settings.wrapper.h = div.offsetHeight - 2 * e);
   let t = "0 0 " + settings.wrapper.w + " " + settings.wrapper.h;
