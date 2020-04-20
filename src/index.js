@@ -27,6 +27,26 @@ function mango() {
 }
 trigger_button.addEventListener("click", mango);
 
+dialog = document.getElementsByClassName("dialog")[0]
+skill = dialog.getElementsByClassName("skill")[0]
+showp = Array.from(skill.getElementsByClassName("showp"))
+button = Array.from(skill.getElementsByClassName("button"))
+current_show = 0
+button[1].addEventListener("click",()=>{
+  if(current_show!=0){
+    showp[current_show].classList.add("main-hidden")
+    showp[current_show].classList.remove("main-visible")
+    current_show --; 
+  }
+})
+button[0].addEventListener("click",()=>{
+  if(current_show!=2){
+    showp[current_show+1].classList.add("main-visible")
+    showp[current_show+1].classList.remove("main-hidden")
+    current_show++;
+  }
+})
+
 // ---------------init functions ---------------------------------------
 const disableBodyScroll = bodyScrollLock.disableBodyScroll,
   enableBodyScroll = bodyScrollLock.enableBodyScroll;

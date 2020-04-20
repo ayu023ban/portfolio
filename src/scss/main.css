@@ -18,6 +18,9 @@
   -ms-overflow-style: none;
   overflow: -moz-scrollbars-none;
 }
+.none {
+  display: none;
+}
 body.notouch {
   position: fixed;
   top: 0;
@@ -286,7 +289,6 @@ main {
 }
 .sq {
   height: 86vh;
-  display: grid;
 }
 .dot:before {
   position: absolute;
@@ -297,7 +299,7 @@ main {
   height: 40px;
   content: "";
   right: 30px;
-  z-index: 2;
+  z-index: 4;
   top: 30px;
 }
 .first {
@@ -353,7 +355,7 @@ main {
   height: 40px;
   content: "";
   right: 30px;
-  z-index: 2;
+  z-index: 4;
 }
 .dots:before {
   top: 30px;
@@ -384,7 +386,7 @@ main {
 }
 .second .about h1 {
   opacity: 0.9;
-  font-size: 48px;
+  font-size: 8px;
   width: max-content;
   margin-bottom: 30px;
 }
@@ -580,6 +582,75 @@ main {
 .cover picture img {
   display: block;
   max-height: 100%;
+}
+.dialog .skill {
+  padding: 0;
+  display: unset;
+  overflow: hidden;
+}
+.dialog .skill .showp {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: all 1s;
+  padding: 30px;
+}
+.dialog .skill .front {
+  z-index: 0;
+  display: grid;
+  grid-template-rows: max-content auto;
+  grid-row-gap: 30px;
+  align-items: center;
+}
+.dialog .skill .front h1 {
+  font-size: 9vh;
+}
+.dialog .skill .front .grid {
+  display: grid;
+  grid-template-rows: 2fr 3fr 2fr;
+  grid-row-gap: 30px;
+  height: 80%;
+  width: 80%;
+}
+.dialog .skill .front .grid .row {
+  align-self: center;
+  height: 100%;
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-around;
+  align-items: center;
+}
+.dialog .skill .front .grid .row div {
+  height: max-content;
+  font-size: 3vh;
+}
+.dialog .skill .front .grid .row img {
+  max-height: 100%;
+}
+.dialog .skill .back {
+  z-index: 1;
+}
+.dialog .skill .other {
+  z-index: 2;
+}
+.dialog .skill .button {
+  height: 40px;
+  width: 40px;
+  background-color: #000;
+  border-radius: 50%;
+  position: absolute;
+  right: 30px;
+  z-index: 4;
+}
+.dialog .skill .button i {
+  color: white;
+  font-size: 40px;
+}
+.dialog .skill .left-button {
+  top: 50%;
+}
+.dialog .skill .right-button {
+  bottom: 50%;
 }
 @media only screen and (orientation: landscape) {
   main {
