@@ -27,25 +27,95 @@ function mango() {
 }
 trigger_button.addEventListener("click", mango);
 
-dialog = document.getElementsByClassName("dialog")[0]
-skill = dialog.getElementsByClassName("skill")[0]
-showp = Array.from(skill.getElementsByClassName("showp"))
-button = Array.from(skill.getElementsByClassName("button"))
-current_show = 0
-button[1].addEventListener("click",()=>{
-  if(current_show!=0){
-    showp[current_show].classList.add("main-hidden")
-    showp[current_show].classList.remove("main-visible")
-    current_show --; 
+function setTransitionInSkill() {
+  dialog = document.getElementsByClassName("dialog")[0];
+  skill = dialog.getElementsByClassName("skill")[0];
+  showp = Array.from(skill.getElementsByClassName("showp"));
+  button = Array.from(skill.getElementsByClassName("button"));
+  current_show = 0;
+  button[1].addEventListener("click", () => {
+    if (current_show != 0) {
+      showp[current_show].classList.add("main-hidden");
+      showp[current_show].classList.remove("main-visible");
+      current_show--;
+    }
+  });
+  button[0].addEventListener("click", () => {
+    if (current_show != 2) {
+      showp[current_show + 1].classList.add("main-visible");
+      showp[current_show + 1].classList.remove("main-hidden");
+      current_show++;
+    }
+  });
+}
+currentSkillDiv = 1;
+transitionValueInSkill = 0;
+function setTransitionInSkillDiv() {
+  temp = document.getElementsByClassName("showp")[0];
+  grid = temp.getElementsByClassName("grid")[0];
+  x = grid.clientHeight;
+  row = Array.from(grid.getElementsByClassName("row"));
+  if (currentSkillDiv > 0) {
+    function skilldivuppereventfunction() {
+      if (currentSkillDiv == 1) {
+        row[currentSkillDiv + 1].removeEventListener(
+          "click",
+          skilldivbeloweventfunc
+        );
+      }
+      row[currentSkillDiv - 1].removeEventListener(
+        "click",
+        skilldivuppereventfunction
+      );
+      if (currentSkillDiv > 0) {
+        row.forEach((e) => {
+          e.style.transform = `translateY(${
+            transitionValueInSkill + (1 * x) / 3
+          }px)`;
+        });
+        row[
+          currentSkillDiv - 1
+        ].style.transform = `translateY(${(transitionValueInSkill =
+          transitionValueInSkill + (1 * x) / 3)}px) scale(1.3)`;
+        currentSkillDiv -= 1;
+      }
+      setTransitionInSkillDiv();
+    }
+    row[currentSkillDiv - 1].addEventListener(
+      "click",
+      skilldivuppereventfunction
+    );
   }
-})
-button[0].addEventListener("click",()=>{
-  if(current_show!=2){
-    showp[current_show+1].classList.add("main-visible")
-    showp[current_show+1].classList.remove("main-hidden")
-    current_show++;
+  if (currentSkillDiv < 2) {
+    function skilldivbeloweventfunc() {
+      row[currentSkillDiv + 1].removeEventListener(
+        "click",
+        skilldivbeloweventfunc
+      );
+      if (currentSkillDiv == 1) {
+        row[currentSkillDiv - 1].removeEventListener(
+          "click",
+          skilldivuppereventfunction
+        );
+      }
+      if (currentSkillDiv < 2) {
+        row.forEach((e) => {
+          e.style.transform = `translateY(${
+            transitionValueInSkill - (1 * x) / 3
+          }px)`;
+        });
+        row[
+          currentSkillDiv + 1
+        ].style.transform = `translateY(${(transitionValueInSkill =
+          transitionValueInSkill - (1 * x) / 3)}px) scale(1.3)`;
+        currentSkillDiv += 1;
+      }
+
+      setTransitionInSkillDiv();
+    }
+    row[currentSkillDiv + 1].addEventListener("click", skilldivbeloweventfunc);
   }
-})
+}
 
 // ---------------init functions ---------------------------------------
 const disableBodyScroll = bodyScrollLock.disableBodyScroll,
@@ -148,49 +218,49 @@ function drawFrame() {
 }
 
 function openDialog(e) {
-  d.num = e,
-  d.board = config.boards[e],
-  d.dialog = config.boards[e].el.parentNode,
-  d.board.prev = 0,
-  d.board.current = 0,
-  d.board.el.style = "",
-  d.dialog.scroll(0, 0),
-  d.dialog.classList.add("dialog-visible"),
-  d.dialog.classList.remove("dialog-hidden"),
-  d.main.classList.add("main-hidden"),
-  d.main.classList.remove("main-visible"),
-  config.isLandscape || (disableBodyScroll(d.dialog),
-  d.isBgBlocked = !0,
-  d.isLandscape = config.isLandscape),
-  config.animStart = performance.now(),
-  config.scrollNow = e
+  (d.num = e),
+    (d.board = config.boards[e]),
+    (d.dialog = config.boards[e].el.parentNode),
+    (d.board.prev = 0),
+    (d.board.current = 0),
+    (d.board.el.style = ""),
+    d.dialog.scroll(0, 0),
+    d.dialog.classList.add("dialog-visible"),
+    d.dialog.classList.remove("dialog-hidden"),
+    d.main.classList.add("main-hidden"),
+    d.main.classList.remove("main-visible"),
+    config.isLandscape ||
+      (disableBodyScroll(d.dialog),
+      (d.isBgBlocked = !0),
+      (d.isLandscape = config.isLandscape)),
+    (config.animStart = performance.now()),
+    (config.scrollNow = e);
 }
 function closeDialog(e) {
   d.dialog.classList.remove("dialog-visible"),
-  d.dialog.classList.add("dialog-hidden"),
-  d.main.classList.remove("main-hidden"),
-  d.main.classList.add("main-visible"),
-  config.isLandscape || (enableBodyScroll(d.dialog),
-  d.isBgBlocked = !1),
-  config.animStart = performance.now();
-  config.scrollNow = 0
+    d.dialog.classList.add("dialog-hidden"),
+    d.main.classList.remove("main-hidden"),
+    d.main.classList.add("main-visible"),
+    config.isLandscape || (enableBodyScroll(d.dialog), (d.isBgBlocked = !1)),
+    (config.animStart = performance.now());
+  config.scrollNow = 0;
 }
-
 
 function setVh() {
-    let e = .01 * window.innerHeight;
-    document.documentElement.style.setProperty("--vh", `${e}px`)
+  let e = 0.01 * window.innerHeight;
+  document.documentElement.style.setProperty("--vh", `${e}px`);
 }
-document.addEventListener("DOMContentLoaded", function() {
-    setVh()
+document.addEventListener("DOMContentLoaded", function () {
+  setVh();
 }),
-window.addEventListener("load", function() {
-    init()
-}),
-window.addEventListener("resize", function() {
-    init(),
-    setVh()
-}),
-init(),
-animate();
-
+  window.addEventListener("load", function () {
+    init();
+  }),
+  window.addEventListener("resize", function () {
+    init(), setVh();
+  }),
+  init(),
+  animate();
+setTransitionInSkill();
+setTransitionInSkillDiv();
+document.getElementsByClassName("row")[0].click()

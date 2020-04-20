@@ -607,10 +607,11 @@ main {
 }
 .dialog .skill .front .grid {
   display: grid;
-  grid-template-rows: 2fr 3fr 2fr;
+  grid-template-rows: auto auto auto;
   grid-row-gap: 30px;
   height: 80%;
   width: 80%;
+  overflow: hidden;
 }
 .dialog .skill .front .grid .row {
   align-self: center;
@@ -619,6 +620,7 @@ main {
   grid-template-columns: auto auto;
   justify-content: space-around;
   align-items: center;
+  transition: all 0.5s;
 }
 .dialog .skill .front .grid .row div {
   height: max-content;
