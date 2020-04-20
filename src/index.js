@@ -35,16 +35,27 @@ function setTransitionInSkill() {
   current_show = 0;
   button[1].addEventListener("click", () => {
     if (current_show != 0) {
+      button[1].classList.remove("none")
+      button[0].classList.remove("none")
       showp[current_show].classList.add("main-hidden");
       showp[current_show].classList.remove("main-visible");
       current_show--;
+      if(current_show==0){
+        button[1].classList.add("none")
+      }
     }
   });
   button[0].addEventListener("click", () => {
+    console.log(current_show)
     if (current_show != 2) {
+      button[0].classList.remove("none")
+      button[1].classList.remove("none")
       showp[current_show + 1].classList.add("main-visible");
       showp[current_show + 1].classList.remove("main-hidden");
       current_show++;
+      if(current_show==2){
+        button[0].classList.add("none")
+      }
     }
   });
 }
