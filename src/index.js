@@ -275,3 +275,4 @@ document.addEventListener("DOMContentLoaded", function () {
 setTransitionInSkill();
 setTransitionInSkillDiv();
 document.getElementsByClassName("row")[0].click()
+document.getElementsByClassName("row")[1].click()

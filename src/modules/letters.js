@@ -282,9 +282,9 @@ var div = document.getElementById("letters"),
     ],
   ],
   textMob = [
-    [{ letter: settings._P }],
-    [{ letter: settings._T }],
-    [{ letter: settings._F }],
+    [{ letter: settings._A }],
+    [{ letter: settings._B }],
+    // [{ letter: settings._F }],
   ],
   text = textDesk,
   easeInOutCubic = function (e, t) {
