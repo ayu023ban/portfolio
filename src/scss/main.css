@@ -1,5 +1,4 @@
 @import url(../assets/fonts/avenir.css);
-@import url(../assets/fonts/roboto.css);
 * {
   margin: 0;
   padding: 0;
@@ -607,7 +606,7 @@ main {
 .dialog .skill .back .grid,
 .dialog .skill .other .grid {
   display: grid;
-  grid-template-rows: 154px 154px 154px 154px;
+  grid-template-rows: 154px 154px 154px 154px 154px;
   grid-row-gap: 30px;
   height: 556px;
   width: 80%;
@@ -634,6 +633,7 @@ main {
 .dialog .skill .back .grid .row img,
 .dialog .skill .other .grid .row img {
   max-height: 100%;
+  height: 70%;
 }
 .dialog .skill .back {
   z-index: 1;
@@ -659,6 +659,30 @@ main {
 }
 .dialog .skill .right-button {
   bottom: 50%;
+}
+.dialog .back {
+  min-height: 86vh;
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 30vw 0 #000, 60vw 0 #000;
+}
+.dialog .back h1 {
+  min-width: 5em;
+  font-size: 18vh;
+}
+.dialog .back br {
+  display: none;
+}
+.dialog .back a.exbutton {
+  display: inline-block;
+  color: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  cursor: pointer;
+  min-width: max-content;
 }
 @media only screen and (orientation: landscape) {
   main {
