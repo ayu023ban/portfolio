@@ -46,7 +46,6 @@ function setTransitionInSkill() {
     }
   });
   button[0].addEventListener("click", () => {
-    console.log(current_show);
     if (current_show != 2) {
       button[0].classList.remove("none");
       button[1].classList.remove("none");

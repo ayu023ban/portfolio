@@ -815,6 +815,9 @@ main {
   }
 }
 @media (hover: hover) {
+  a.exbutton:hover span.arrow > svg {
+    transform: translate3d(120%, -120%, 0);
+  }
   .second .skills {
     transition: color transform 0.2s;
   }
