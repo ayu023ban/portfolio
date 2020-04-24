@@ -136,6 +136,37 @@ class Skill {
   }
 }
 
+projects = ['restaurent','tic']
+
+function projectdivselector(projects){
+  x=Array(3)
+  x[0]=projects.map((e)=>{
+    return `#${e}-slideshow > div:gt(0)`
+  })
+  x[1]=projects.map((e)=>{
+    return `#${e}-slideshow > div:first`
+  })
+  x[2]=projects.map((e)=>{
+    return `#${e}-slideshow`
+  })
+  return x
+}
+projectsdiv = projectdivselector(projects)
+for (let i = 0;i<projects.length;i++){
+  $(projectsdiv[0][i]).hide();
+setInterval(function() {
+  $(projectsdiv[1][i])
+    .fadeOut(1000)
+    .next()
+    .fadeIn(1000)
+    .end()
+    .appendTo(projectsdiv[2][i]);
+}, 3000);
+}
+
+
+
+
 // ---------------init functions ---------------------------------------
 const disableBodyScroll = bodyScrollLock.disableBodyScroll,
   enableBodyScroll = bodyScrollLock.enableBodyScroll;
