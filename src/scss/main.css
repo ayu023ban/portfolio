@@ -315,6 +315,7 @@ main {
   font-size: 72px;
 }
 .first .intro .firstcontent span {
+  cursor: pointer;
   -webkit-text-stroke: 1px #000;
   color: transparent;
 }
@@ -524,17 +525,17 @@ main {
 .footer .footer-end .social .social_button_new {
   height: scaleY(1);
 }
-.footer .footer-end .social .rotate {
-  transform: rotate(180deg);
-}
 .footer .footer-end .social .trigger-button {
   transition: all 0.2s;
   text-align: center;
+  height: 40px;
+  transform: rotate(180deg);
 }
-.footer .footer-end .social .fas {
-  background-color: #000;
-  color: #ef1414;
-  border-radius: 50%;
+.footer .footer-end .social .rotate {
+  transform: rotate(0deg);
+}
+.footer .footer-end .social img {
+  width: 100%;
 }
 .cover {
   position: relative;
@@ -575,6 +576,16 @@ main {
 .cover picture img {
   display: block;
   max-height: 100%;
+}
+.cover video,
+.cover canvas,
+.cover #particles-js {
+  height: 100%;
+  grid-column: 1;
+  grid-row: 2;
+  display: block;
+  align-self: center;
+  opacity: 0.9;
 }
 .dialog .skill {
   padding: 0;
@@ -644,14 +655,17 @@ main {
 .dialog .skill .button {
   height: 40px;
   width: 40px;
-  background-color: #000;
+  background-color: #fff;
   border-radius: 50%;
   position: absolute;
   right: 30px;
   z-index: 4;
 }
+.dialog .skill .button img {
+  width: 100%;
+}
 .dialog .skill .button i {
-  color: white;
+  color: #fff;
   font-size: 40px;
 }
 .dialog .skill .left-button {
@@ -659,6 +673,9 @@ main {
 }
 .dialog .skill .right-button {
   bottom: 50%;
+}
+.dialog .skill .right-button img {
+  transform: rotate(180deg);
 }
 .dialog .back {
   min-height: 86vh;
@@ -779,7 +796,7 @@ main {
   }
   .cover {
     padding: unset;
-    width: 150vh;
+    width: 179vh;
   }
   .cover h1 > span:last-child {
     transform: translateY(0.54em);

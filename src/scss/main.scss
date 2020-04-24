@@ -320,6 +320,7 @@ main {
       font-family: Avenir-demi;
       font-size: 72px;
       span {
+        cursor: pointer;
         -webkit-text-stroke: 1px $textColor;
         color: transparent;
       }
@@ -537,18 +538,23 @@ main {
       .social_button_new {
         height: scaleY(1);
       }
-      .rotate {
-        transform: rotate(180deg);
-      }
       .trigger-button {
         transition: all 0.2s;
         text-align: center;
+        height: 40px;
+        transform: rotate(180deg);
       }
-      .fas {
-        background-color: $black;
-        color: $red;
-        border-radius: 50%;
+      .rotate {
+        transform: rotate(0deg);
       }
+      img {
+        width: 100%;
+      }
+      // .fas {
+      //   background-color: $black;
+      //   color: $red;
+      //   border-radius: 50%;
+      // }
     }
   }
 }
@@ -591,6 +597,15 @@ main {
       display: block;
       max-height: 100%;
     }
+  }
+  video,canvas, #particles-js{
+    height:100%;
+    grid-column: 1;
+    grid-row: 2;
+    display: block;
+    align-self: center;
+    opacity: 0.9;
+    //padding: $main-padding;
   }
 }
 
@@ -654,13 +669,16 @@ main {
     .button {
       height: $dot;
       width: $dot;
-      background-color: $black;
+      background-color: $white;
       border-radius: 50%;
       position: absolute;
       right: $main-padding;
       z-index: 4;
+      img {
+        width: 100%;
+      }
       i {
-        color: white;
+        color: $white;
         font-size: 40px;
       }
     }
@@ -669,6 +687,9 @@ main {
     }
     .right-button {
       bottom: 50%;
+      img{
+        transform: rotate(180deg);
+      }
     }
   }
   .back {
@@ -795,7 +816,7 @@ main {
 
   .cover {
     padding: unset;
-    width: 150vh;
+    width: 179vh;
     h1 > span:last-child {
       transform: translateY(0.54em);
     }

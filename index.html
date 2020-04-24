@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" />
   <!-- Google Fonts -->
   <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" /> -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="./src/modules/particle.js"></script>
 </head>
 
 <body class="notouch">
@@ -51,7 +53,7 @@
         <div class="date"><span>2</span><br />3</div>
         <div class="intro">
           Hello
-          <div class="firstcontent">I'm <span>Ayush Bansal</span></div>
+          <div class="firstcontent">I'm <span onclick="openDialog(1)">Ayush Bansal</span></div>
           <div class="secondcontent">Full Stack<br />Developer</div>
         </div>
         <div class="thirdcontent">
@@ -65,7 +67,7 @@
       </div>
       <div class="gap"></div>
       <div class="title second s-blue dots">
-        <div class="skills" onclick="openDialog(1)">Skills
+        <div class="skills" onclick="openDialog(2)">Skills
           <span class="arrow">
             <svg>
               <use xlink:href="#arrow">
@@ -88,7 +90,7 @@
       </div>
       <div class="gap"></div>
       <div class="third grid s-white dot">
-        <div class="project" onclick="openDialog(2)">Projects
+        <div class="project" onclick="openDialog(3)">Projects
           <span class="arrow">
             <svg>
               <use xlink:href="#arrow">
@@ -136,7 +138,8 @@
               <a href="https://www.instagram.com/ayu023ban/" target="_blank"><i class="fab fa-instagram"></i></a>
             </div>
             <div class="trigger-button">
-              <i class="fas fa-arrow-up"></i>
+              <!-- <i class="fas fa-arrow-up"></i> -->
+              <img src="./src/assets/images/arrow.webp" alt="">
             </div>
 
           </div>
@@ -145,7 +148,15 @@
     </div>
   </main>
 
-
+  <div class="dialog">
+    <div class="wrapper">
+      <div class="cover" onclick="closeDialog(1)">
+        <picture>
+          <img src="./src/assets/images/backjpg-1.webp" sizes="(orientation: landscape) 100%, 100%" alt="Ayush Bansal">
+        </picture>
+      </div>
+    </div>
+  </div>
 
 
 
@@ -154,9 +165,10 @@
   <!-- -------------------------------------skill cover------------------------------------------ -->
 
   <div class="dialog">
+
     <div class="wrapper">
 
-      <div class="cover" onclick="closeDialog(1)">
+      <div class="cover" onclick="closeDialog(2)">
         <h1>
           <span>
             <a class="exbutton">
@@ -172,15 +184,22 @@
           </span>
           <span>Skills</span>
         </h1>
-        <picture>
+        <!-- <picture>
           <img src="./src/assets/images/backjpg-1.webp" sizes="(orientation: landscape) 100%, 100%" alt="Ayush Bansal">
-        </picture>
+        </picture> -->
+        <!-- <video autoplay muted loop>
+          <source src="./src/assets/videos/particle.mp4" type="video/mp4">
+        </video> -->
+        <div id="particles-js"> 
+          <canvas class="particles-js-canvas-el"></canvas>
+        </div>
       </div>
 
       <div class="gap"></div>
+
       <div class="sq s-red skill dots">
 
-        <div class="left-button button"><i class="fas fa-arrow-down"></i></div>
+        <div class="left-button button"><img src="./src/assets/images/arrow.webp" alt=""></div>
 
         <div class="s-red showp front main-visible">
           <h1>Front End</h1>
@@ -241,36 +260,64 @@
           </div>
         </div>
 
-        <div class="right-button button none"><i class="fas fa-arrow-up"></i></div>
+        <div class="right-button button none"><img src="./src/assets/images/arrow.webp" alt=""></i></div>
 
       </div>
 
       <div class="gap"></div>
 
       <div class="back" onclick="closeDialog('end')">
-				<h1>
-					<a class="exbutton">
-						<span class="arrow">
-							<svg><use xlink:href="#arrow"></svg>
-							<svg><use xlink:href="#arrow"></svg>
-						</span>
-						<br>Back
-					</a>					
-				</h1>
-			</div>
+        <h1>
+          <a class="exbutton">
+            <span class="arrow">
+              <svg>
+                <use xlink:href="#arrow">
+              </svg>
+              <svg>
+                <use xlink:href="#arrow">
+              </svg>
+            </span>
+            <br>Back
+          </a>
+        </h1>
+      </div>
     </div>
   </div>
 
 
 
+  <!-- ---------------------------------project cover ---------------------------------------------------- -->
 
   <div class="dialog">
+
     <div class="wrapper">
+
+      <div class="cover" onclick="closeDialog(3)"></div>
+
+      <div class="gap"></div>
+
+      <div class="back" onclick="closeDialog('end')">
+        <h1>
+          <a class="exbutton">
+            <span class="arrow">
+              <svg>
+                <use xlink:href="#arrow">
+              </svg>
+              <svg>
+                <use xlink:href="#arrow">
+              </svg>
+            </span>
+            <br>Back
+          </a>
+        </h1>
+      </div>
 
     </div>
   </div>
 
 
+  <script src="./src/modules/particle.js"></script>
+  <script src="./src/modules/app.js"></script>
   <script src="./src/index.js"></script>
 
   <script src="./src/modules/letters.js"></script>

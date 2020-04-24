@@ -28,7 +28,7 @@ function mango() {
 trigger_button.addEventListener("click", mango);
 
 function setTransitionInSkill() {
-  dialog = document.getElementsByClassName("dialog")[0];
+  dialog = document.getElementsByClassName("dialog")[1];
   skill = dialog.getElementsByClassName("skill")[0];
   showp = Array.from(skill.getElementsByClassName("showp"));
   button = Array.from(skill.getElementsByClassName("button"));
