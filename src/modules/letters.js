@@ -461,13 +461,20 @@ function makePathD(e, t, y) {
       : void 0;
   }
 }
+// window.addEventListener("load", function () {
+  div.classList.add("transition"),
+    setSvgViewbox(),
+    (settings.helpers = calcHelpers(text)),
+    drawFrameBg(),
+    animateBg();
+// }),
+  window.addEventListener("resize", function () {
+    setSvgViewbox(), (settings.helpers = calcHelpers(text));
+  });
 window.addEventListener("load", function () {
   div.classList.add("transition"),
     setSvgViewbox(),
     (settings.helpers = calcHelpers(text)),
     drawFrameBg(),
     animateBg();
-}),
-  window.addEventListener("resize", function () {
-    setSvgViewbox(), (settings.helpers = calcHelpers(text));
-  });
+})
