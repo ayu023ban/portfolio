@@ -66,7 +66,7 @@ class Skill {
     this.grid = this.ele.getElementsByClassName("grid")[0];
     this.row = Array.from(this.grid.getElementsByClassName("row"));
     // this.x = this.grid.clientHeight/this.row.length;
-    this.x = 184;
+    this.x = 180;
     this.m;
     this.n
   }
@@ -76,11 +76,13 @@ class Skill {
         "click",
         this.n
       );
+      this.row[this.currentSkillDiv+1].classList.remove("blurr")
     }
     this.row[this.currentSkillDiv - 1].removeEventListener(
       "click",
       this.m
     );
+    this.row[this.currentSkillDiv-1].classList.remove("blurr")
     if (this.currentSkillDiv > 0) {
       this.row.forEach((e) => {
         e.style.transform = `translateY(${
@@ -100,11 +102,13 @@ class Skill {
       "click",
       this.n
     );
+    this.row[this.currentSkillDiv+1].classList.remove("blurr")
     if (this.currentSkillDiv !=0) {
       this.row[this.currentSkillDiv - 1].removeEventListener(
         "click",
         this.m
       );
+      this.row[this.currentSkillDiv-1].classList.remove ("blurr")
     }
     if (this.currentSkillDiv < this.row.length-1) {
       this.row.forEach((e) => {
@@ -129,9 +133,11 @@ class Skill {
         "click",
         this.m
       );
+      this.row[this.currentSkillDiv-1].classList.add("blurr")
      }  
     if (this.currentSkillDiv < this.row.length-1) {
       this.row[this.currentSkillDiv + 1].addEventListener("click", this.n)
+      this.row[this.currentSkillDiv+1].classList.add("blurr")
     }
   }
 }

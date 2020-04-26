@@ -1,4 +1,5 @@
 @import url(../assets/fonts/avenir.css);
+@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -132,6 +133,10 @@ h2 h2 {
 }
 .s-red-black {
   color: #000;
+}
+.blurr {
+  filter: blur(3px);
+  -webkit-filter: blur(3px);
 }
 .date {
   color: transparent;
@@ -618,9 +623,8 @@ main {
 .dialog .skill .back .grid,
 .dialog .skill .other .grid {
   display: grid;
-  grid-template-rows: 154px 154px 154px 154px 154px;
-  grid-row-gap: 30px;
-  height: 556px;
+  grid-template-rows: 180px 180px 180px 180px 180px;
+  height: 540px;
   width: 80%;
   overflow: hidden;
 }
@@ -633,25 +637,44 @@ main {
   grid-template-columns: auto auto;
   justify-content: space-around;
   align-items: center;
-  transition: all 0.5s;
+  transition-property: transform, filter;
+  transition-duration: 0.5s, 1s;
 }
 .dialog .skill .front .grid .row div,
 .dialog .skill .back .grid .row div,
 .dialog .skill .other .grid .row div {
   height: max-content;
   font-size: 3vh;
+  font-family: "Luckiest Guy", cursive;
+  color: transparent;
+  -webkit-text-stroke: 1px #000;
 }
 .dialog .skill .front .grid .row img,
 .dialog .skill .back .grid .row img,
 .dialog .skill .other .grid .row img {
   max-height: 100%;
   height: 70%;
+  max-width: 17vh;
+}
+.dialog .skill .front {
+  background-color: #5ccccc;
+}
+.dialog .skill .front h1 {
+  color: #006363;
 }
 .dialog .skill .back {
   z-index: 1;
+  background-color: #ffc500;
+}
+.dialog .skill .back h1 {
+  color: #ff7400;
 }
 .dialog .skill .other {
   z-index: 2;
+  background-color: #ee3b80;
+}
+.dialog .skill .other h1 {
+  color: #8f0037;
 }
 .dialog .skill .button {
   height: 40px;
