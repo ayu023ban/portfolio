@@ -33,12 +33,17 @@ function setTransitionInSkill() {
   showp = Array.from(skill.getElementsByClassName("showp"));
   button = Array.from(skill.getElementsByClassName("button"));
   current_show = 0;
+  visibleClass = config.isLandscape ? "main-visible" : "dialog-visible";
+  hiddenClass = config.isLandscape ? "main-hidden" : "dialog-hidden";
+  showp[0].classList.add(visibleClass)
+  showp[1].classList.add(hiddenClass)
+  showp[2].classList.add(hiddenClass)
   button[1].addEventListener("click", () => {
     if (current_show != 0) {
       button[1].classList.remove("none");
       button[0].classList.remove("none");
-      showp[current_show].classList.add("main-hidden");
-      showp[current_show].classList.remove("main-visible");
+      showp[current_show].classList.add(hiddenClass);
+      showp[current_show].classList.remove(visibleClass);
       current_show--;
       if (current_show == 0) {
         button[1].classList.add("none");
@@ -49,8 +54,8 @@ function setTransitionInSkill() {
     if (current_show != 2) {
       button[0].classList.remove("none");
       button[1].classList.remove("none");
-      showp[current_show + 1].classList.add("main-visible");
-      showp[current_show + 1].classList.remove("main-hidden");
+      showp[current_show + 1].classList.add(visibleClass);
+      showp[current_show + 1].classList.remove(hiddenClass);
       current_show++;
       if (current_show == 2) {
         button[0].classList.add("none");
@@ -66,23 +71,17 @@ class Skill {
     this.grid = this.ele.getElementsByClassName("grid")[0];
     this.row = Array.from(this.grid.getElementsByClassName("row"));
     // this.x = this.grid.clientHeight/this.row.length;
-    this.x = 180;
+    this.x = config.isLandscape ? 180 : 90;
     this.m;
-    this.n
+    this.n;
   }
   skilldivuppereventfunction() {
-    if (this.currentSkillDiv !=(this.row.length-1)) {
-      this.row[this.currentSkillDiv + 1].removeEventListener(
-        "click",
-        this.n
-      );
-      this.row[this.currentSkillDiv+1].classList.remove("blurr")
+    if (this.currentSkillDiv != this.row.length - 1) {
+      this.row[this.currentSkillDiv + 1].removeEventListener("click", this.n);
+      this.row[this.currentSkillDiv + 1].classList.remove("blurr");
     }
-    this.row[this.currentSkillDiv - 1].removeEventListener(
-      "click",
-      this.m
-    );
-    this.row[this.currentSkillDiv-1].classList.remove("blurr")
+    this.row[this.currentSkillDiv - 1].removeEventListener("click", this.m);
+    this.row[this.currentSkillDiv - 1].classList.remove("blurr");
     if (this.currentSkillDiv > 0) {
       this.row.forEach((e) => {
         e.style.transform = `translateY(${
@@ -92,86 +91,74 @@ class Skill {
       this.row[
         this.currentSkillDiv - 1
       ].style.transform = `translateY(${(this.transitionValueInSkill =
-        this.transitionValueInSkill + this.x) }px) scale(1.3)`;
-        this.currentSkillDiv -= 1;
+        this.transitionValueInSkill + this.x)}px) scale(1.3)`;
+      this.currentSkillDiv -= 1;
     }
     this.setTransition();
   }
   skilldivbeloweventfunc() {
-    this.row[this.currentSkillDiv + 1].removeEventListener(
-      "click",
-      this.n
-    );
-    this.row[this.currentSkillDiv+1].classList.remove("blurr")
-    if (this.currentSkillDiv !=0) {
-      this.row[this.currentSkillDiv - 1].removeEventListener(
-        "click",
-        this.m
-      );
-      this.row[this.currentSkillDiv-1].classList.remove ("blurr")
+    this.row[this.currentSkillDiv + 1].removeEventListener("click", this.n);
+    this.row[this.currentSkillDiv + 1].classList.remove("blurr");
+    if (this.currentSkillDiv != 0) {
+      this.row[this.currentSkillDiv - 1].removeEventListener("click", this.m);
+      this.row[this.currentSkillDiv - 1].classList.remove("blurr");
     }
-    if (this.currentSkillDiv < this.row.length-1) {
+    if (this.currentSkillDiv < this.row.length - 1) {
       this.row.forEach((e) => {
         e.style.transform = `translateY(${
-          this.transitionValueInSkill - this.x 
+          this.transitionValueInSkill - this.x
         }px)`;
       });
       this.row[
         this.currentSkillDiv + 1
       ].style.transform = `translateY(${(this.transitionValueInSkill =
         this.transitionValueInSkill - this.x)}px) scale(1.3)`;
-        this.currentSkillDiv += 1;
+      this.currentSkillDiv += 1;
     }
 
     this.setTransition();
   }
-  setTransition(){
-    this.m = this.skilldivuppereventfunction.bind(this)
-    this.n = this.skilldivbeloweventfunc.bind(this)
-     if (this.currentSkillDiv > 0) {      
-      this.row[this.currentSkillDiv - 1].addEventListener(
-        "click",
-        this.m
-      );
-      this.row[this.currentSkillDiv-1].classList.add("blurr")
-     }  
-    if (this.currentSkillDiv < this.row.length-1) {
-      this.row[this.currentSkillDiv + 1].addEventListener("click", this.n)
-      this.row[this.currentSkillDiv+1].classList.add("blurr")
+  setTransition() {
+    this.m = this.skilldivuppereventfunction.bind(this);
+    this.n = this.skilldivbeloweventfunc.bind(this);
+    if (this.currentSkillDiv > 0) {
+      this.row[this.currentSkillDiv - 1].addEventListener("click", this.m);
+      this.row[this.currentSkillDiv - 1].classList.add("blurr");
+    }
+    if (this.currentSkillDiv < this.row.length - 1) {
+      this.row[this.currentSkillDiv + 1].addEventListener("click", this.n);
+      this.row[this.currentSkillDiv + 1].classList.add("blurr");
     }
   }
 }
 
-projects = ['restaurent','tic']
+projects = ["restaurent", "tic"];
 
-function projectdivselector(projects){
-  x=Array(3)
-  x[0]=projects.map((e)=>{
-    return `#${e}-slideshow > div:gt(0)`
-  })
-  x[1]=projects.map((e)=>{
-    return `#${e}-slideshow > div:first`
-  })
-  x[2]=projects.map((e)=>{
-    return `#${e}-slideshow`
-  })
-  return x
+function projectdivselector(projects) {
+  x = Array(3);
+  x[0] = projects.map((e) => {
+    return `#${e}-slideshow > div:gt(0)`;
+  });
+  x[1] = projects.map((e) => {
+    return `#${e}-slideshow > div:first`;
+  });
+  x[2] = projects.map((e) => {
+    return `#${e}-slideshow`;
+  });
+  return x;
 }
-projectsdiv = projectdivselector(projects)
-for (let i = 0;i<projects.length;i++){
+projectsdiv = projectdivselector(projects);
+for (let i = 0; i < projects.length; i++) {
   $(projectsdiv[0][i]).hide();
-setInterval(function() {
-  $(projectsdiv[1][i])
-    .fadeOut(1000)
-    .next()
-    .fadeIn(1000)
-    .end()
-    .appendTo(projectsdiv[2][i]);
-}, 3000);
+  setInterval(function () {
+    $(projectsdiv[1][i])
+      .fadeOut(1000)
+      .next()
+      .fadeIn(1000)
+      .end()
+      .appendTo(projectsdiv[2][i]);
+  }, 3000);
 }
-
-
-
 
 // ---------------init functions ---------------------------------------
 const disableBodyScroll = bodyScrollLock.disableBodyScroll,
@@ -319,8 +306,11 @@ document.addEventListener("DOMContentLoaded", function () {
   animate();
 setTransitionInSkill();
 
-for(let i =0;i<3;i++){
-  a= new Skill(i)
-  a.setTransition()
-   document.getElementsByClassName("showp")[i].getElementsByClassName("row")[0].click();
+for (let i = 0; i < 3; i++) {
+  a = new Skill(i);
+  a.setTransition();
+  document
+    .getElementsByClassName("showp")
+    [i].getElementsByClassName("row")[0]
+    .click();
 }
