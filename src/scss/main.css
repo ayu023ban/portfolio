@@ -740,7 +740,114 @@ main {
 .dialog .project2 .project-background #tic-slideshow div img {
   width: 100%;
   height: 100%;
+}
+.dialog .project1description,
+.dialog .project2description {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto;
+  color: #fff;
+  align-content: space-between;
+  align-items: center;
+}
+.dialog .project1description .titleproject,
+.dialog .project2description .titleproject {
+  grid-area: 1/1/-1/2;
+  font-family: Monoton;
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  font-size: 6vh;
+  cursor: default;
+}
+.dialog .project1description .tags,
+.dialog .project2description .tags {
+  margin-top: 30px;
+  margin-left: 30px;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  cursor: default;
+}
+.dialog .project1description .tags span,
+.dialog .project2description .tags span {
+  margin: 0 10px;
+  padding: 10px 20px;
+  background-color: rgba(196, 196, 196, 0.3);
+}
+.dialog .project1description .description,
+.dialog .project2description .description {
+  width: 80%;
+  font-size: 24px;
+  margin-left: 30px;
   opacity: 0.5;
+}
+.dialog .project1description .links,
+.dialog .project2description .links {
+  grid-area: 3/2/4/3;
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: center;
+  grid-column-gap: 20px;
+  align-self: flex-end;
+}
+.dialog .project1description .links a,
+.dialog .project2description .links a {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 3px;
+  border-width: 2px;
+  border-style: solid;
+  transition: all 0.2s;
+}
+.dialog .project1description .links a:first-child,
+.dialog .project2description .links a:first-child {
+  border-color: #0546ee;
+}
+.dialog .project1description .links a:last-child,
+.dialog .project2description .links a:last-child {
+  border-color: #ef1414;
+}
+.dialog .project1description .links a:last-child i,
+.dialog .project2description .links a:last-child i {
+  font-size: 16px;
+}
+.dialog .project1description .links a:first-child:hover,
+.dialog .project2description .links a:first-child:hover {
+  color: #0546ee;
+  border-color: #fff;
+}
+.dialog .project1description .links a:last-child:hover,
+.dialog .project2description .links a:last-child:hover {
+  color: #ef1414;
+  border-color: #fff;
+}
+.dialog .project1description .date2,
+.dialog .project2description .date2 {
+  grid-area: 1/3/2/4;
+  -webkit-text-stroke: 1px #0546ee;
+  transition: all 0.2s;
+  align-self: flex-start;
+}
+.dialog .project1description .date2:hover,
+.dialog .project2description .date2:hover {
+  color: #0546ee;
+  -webkit-text-stroke: 2px #fff;
+}
+.dialog .project1description .date3,
+.dialog .project2description .date3 {
+  align-self: flex-end;
+  grid-area: 3/3/4/4;
+  -webkit-text-stroke: 1px #ef1414;
+  transition: all 0.2s;
+}
+.dialog .project1description .date3:hover,
+.dialog .project2description .date3:hover {
+  color: #ef1414;
+  -webkit-text-stroke: 2px #fff;
+}
+.dialog .project2description .titleproject {
+  font-size: 5vh;
 }
 @media only screen and (orientation: landscape) {
   main {
@@ -833,6 +940,10 @@ main {
   }
   .gap {
     min-width: 320px;
+    height: 100%;
+  }
+  .gap-small {
+    min-width: 50px;
     height: 100%;
   }
   .cover {
