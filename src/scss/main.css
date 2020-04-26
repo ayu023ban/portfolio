@@ -960,6 +960,16 @@ main {
       padding: 10px 20px;
       font-size: 12px; }
 
+  .dialog .cover {
+    padding: 0; }
+    .dialog .cover picture, .dialog .cover img {
+      padding: 0;
+      margin-left: 0;
+      margin-top: 90px;
+      width: 100%; }
+  .dialog .gap-small {
+    height: 0;
+    padding: 0; }
   .dialog .skill .left-button {
     top: unset;
     bottom: 20px;
