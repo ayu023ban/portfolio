@@ -1,5 +1,5 @@
 @import "../assets/fonts/avenir.css";
-@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
+// @import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -594,6 +594,7 @@ main {
   canvas,
   #particles-js1,
   #particles-js2 {
+    grid-row: 1/-1;
     height: 100%;
     grid-column: 1;
     grid-row: 2;
@@ -602,6 +603,7 @@ main {
     opacity: 0.9;
   }
 }
+
 
 .dialog {
   .skill {
@@ -733,6 +735,7 @@ main {
 
   .project1,
   .project2 {
+    padding: 0;
     min-width: 150vh;
     .project-background {
       position: absolute;
@@ -970,6 +973,7 @@ main {
       justify-content: space-between;
       font-size: 18vh;
       margin-left: $main-padding;
+      max-height: 100vh;
       picture {
         img {
           min-width: unset;
@@ -996,6 +1000,10 @@ main {
       }
     }
   }
+  // .projectcover{
+  //   width:179vh;
+  //   height: 100vh;
+  // }
 }
 
 @media (hover: hover) {
@@ -1139,14 +1147,14 @@ main {
     }
   }
   .dialog {
-    .cover{
+    .cover {
       padding: 0;
-      picture,img{
-        padding:0;
+      picture,
+      img {
+        padding: 0;
         margin-left: 0;
         margin-top: 90px;
-        width:100%;
-        
+        width: 100%;
       }
     }
     .gap-small {
@@ -1229,6 +1237,145 @@ main {
       }
       .date {
         font-size: 16vw;
+      }
+    }
+  }
+}
+
+@media only screen and (orientation: landscape) and (max-height: 560px) {
+  .date {
+    font-size: 13vh;
+  }
+  .gap {
+    min-width: 160px;
+  }
+  .dot:before,
+  .dots:before,
+  .dots:after {
+    width: 30px;
+    height: 30px;
+  }
+  main {
+    .wrapper:last-child {
+      box-shadow: unset;
+    }
+
+    .first {
+      .intro {
+        font-size: 18px;
+        .firstcontent {
+          font-size: 36px;
+        }
+      }
+      .thirdcontent {
+        .social {
+          .fab {
+            font-size: 20px;
+            margin: auto 10px;
+          }
+        }
+      }
+    }
+    .second {
+      padding: 20px;
+      .skills {
+        max-width: 100%;
+        font-size: 13vh;
+        .quote {
+          max-width: 90%;
+          font-size: 12px;
+        }
+      }
+      .about {
+        width: 90%;
+        h1 {
+          margin: 0.5em 0 0.4em 0;
+          font-size: 24px;
+        }
+        p {
+          font-size: 12px;
+        }
+        p:nth-child(3) {
+          margin-top: 10px;
+        }
+      }
+    }
+    .footer {
+      .contact {
+        p:nth-child(2) {
+          font-size: 18px;
+        }
+      }
+      .email {
+        font-size: 12px;
+      }
+      .footer-end {
+        .credit {
+          font-size: 12px;
+        }
+        .social {
+          width: 20px;
+          .trigger-button {
+            width: 100%;
+            height: 20px;
+          }
+          .social-button {
+            i {
+              font-size: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .dialog {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    .wrapper {
+      display: flex;
+      flex-flow: row;
+      height: 100%;
+      .cover {
+        overflow: unset;
+      }
+      .skill {
+        .front,
+        .back,
+        .other {
+          .grid {
+            $temp: 90px;
+            grid-template-rows: $temp $temp $temp $temp $temp;
+          }
+        }
+      }
+
+      .project1description,
+      .project2description {
+        width: max-content;
+        .titleproject{
+          font-size: 5vh;
+        }
+        .tags {
+          margin: 0;
+          span {
+            padding: 5px 10px;
+            font-size: 14px;
+          }
+        }
+        .description {
+          font-size: 12px;
+        }
+        .links,
+        .date3 {
+          margin-bottom: $main-padding;
+          a {
+            font-size: 14px;
+            padding:5px 10px;
+          }
+        }
+      }
+      .project1description{
+        min-width: 100vh;
       }
     }
   }

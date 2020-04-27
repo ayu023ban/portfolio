@@ -71,7 +71,7 @@ class Skill {
     this.grid = this.ele.getElementsByClassName("grid")[0];
     this.row = Array.from(this.grid.getElementsByClassName("row"));
     // this.x = this.grid.clientHeight/this.row.length;
-    this.x = config.isLandscape ? 180 : 90;
+    this.x = config.isLandscape ?(this.ele.offsetHeight>560)?180:90 : 90;
     this.m;
     this.n;
   }

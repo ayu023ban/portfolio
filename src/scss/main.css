@@ -514,6 +514,7 @@ main {
   .cover canvas,
   .cover #particles-js1,
   .cover #particles-js2 {
+    grid-row: 1/-1;
     height: 100%;
     grid-column: 1;
     grid-row: 2;
@@ -538,8 +539,7 @@ main {
     display: grid;
     grid-template-rows: max-content auto;
     grid-row-gap: 30px;
-    align-items: center;
-    @import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap"); }
+    align-items: center; }
     .dialog .skill .front h1,
     .dialog .skill .back h1,
     .dialog .skill .other h1 {
@@ -632,6 +632,7 @@ main {
     min-width: max-content; }
 .dialog .project1,
 .dialog .project2 {
+  padding: 0;
   min-width: 150vh; }
   .dialog .project1 .project-background,
   .dialog .project2 .project-background {
@@ -848,7 +849,8 @@ main {
       padding: 30px;
       justify-content: space-between;
       font-size: 18vh;
-      margin-left: 30px; }
+      margin-left: 30px;
+      max-height: 100vh; }
       .cover h1 picture img {
         min-width: unset;
         max-width: unset;
@@ -962,7 +964,8 @@ main {
 
   .dialog .cover {
     padding: 0; }
-    .dialog .cover picture, .dialog .cover img {
+    .dialog .cover picture,
+    .dialog .cover img {
       padding: 0;
       margin-left: 0;
       margin-top: 90px;
@@ -1032,5 +1035,100 @@ main {
     .dialog .project1description .date,
     .dialog .project2description .date {
       font-size: 16vw; } }
+@media only screen and (orientation: landscape) and (max-height: 560px) {
+  .date {
+    font-size: 13vh; }
+
+  .gap {
+    min-width: 160px; }
+
+  .dot:before,
+  .dots:before,
+  .dots:after {
+    width: 30px;
+    height: 30px; }
+
+  main .wrapper:last-child {
+    box-shadow: unset; }
+  main .first .intro {
+    font-size: 18px; }
+    main .first .intro .firstcontent {
+      font-size: 36px; }
+  main .first .thirdcontent .social .fab {
+    font-size: 20px;
+    margin: auto 10px; }
+  main .second {
+    padding: 20px; }
+    main .second .skills {
+      max-width: 100%;
+      font-size: 13vh; }
+      main .second .skills .quote {
+        max-width: 90%;
+        font-size: 12px; }
+    main .second .about {
+      width: 90%; }
+      main .second .about h1 {
+        margin: 0.5em 0 0.4em 0;
+        font-size: 24px; }
+      main .second .about p {
+        font-size: 12px; }
+      main .second .about p:nth-child(3) {
+        margin-top: 10px; }
+  main .footer .contact p:nth-child(2) {
+    font-size: 18px; }
+  main .footer .email {
+    font-size: 12px; }
+  main .footer .footer-end .credit {
+    font-size: 12px; }
+  main .footer .footer-end .social {
+    width: 20px; }
+    main .footer .footer-end .social .trigger-button {
+      width: 100%;
+      height: 20px; }
+    main .footer .footer-end .social .social-button i {
+      font-size: 20px; }
+
+  .dialog {
+    overflow-x: scroll;
+    overflow-y: hidden; }
+    .dialog .wrapper {
+      display: flex;
+      flex-flow: row;
+      height: 100%; }
+      .dialog .wrapper .cover {
+        overflow: unset; }
+      .dialog .wrapper .skill .front .grid,
+      .dialog .wrapper .skill .back .grid,
+      .dialog .wrapper .skill .other .grid {
+        grid-template-rows: 90px 90px 90px 90px 90px; }
+      .dialog .wrapper .project1description,
+      .dialog .wrapper .project2description {
+        width: max-content; }
+        .dialog .wrapper .project1description .titleproject,
+        .dialog .wrapper .project2description .titleproject {
+          font-size: 5vh; }
+        .dialog .wrapper .project1description .tags,
+        .dialog .wrapper .project2description .tags {
+          margin: 0; }
+          .dialog .wrapper .project1description .tags span,
+          .dialog .wrapper .project2description .tags span {
+            padding: 5px 10px;
+            font-size: 14px; }
+        .dialog .wrapper .project1description .description,
+        .dialog .wrapper .project2description .description {
+          font-size: 12px; }
+        .dialog .wrapper .project1description .links,
+        .dialog .wrapper .project1description .date3,
+        .dialog .wrapper .project2description .links,
+        .dialog .wrapper .project2description .date3 {
+          margin-bottom: 30px; }
+          .dialog .wrapper .project1description .links a,
+          .dialog .wrapper .project1description .date3 a,
+          .dialog .wrapper .project2description .links a,
+          .dialog .wrapper .project2description .date3 a {
+            font-size: 14px;
+            padding: 5px 10px; }
+      .dialog .wrapper .project1description {
+        min-width: 100vh; } }
 
 /*# sourceMappingURL=main.css.map */
